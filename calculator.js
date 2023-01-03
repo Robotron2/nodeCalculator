@@ -9,7 +9,10 @@ app.get("/", (req, res) => {
 })
 
 app.post("/", (req, res) => {
-	res.send("Thanks for posting that!")
+	let num1 = Number(req.body.num1)
+	let num2 = Number(req.body.num2)
+	let sum = num1 + num2
+	res.send(`The sum of ${num1} and ${num2} is ${sum}`)
 })
 
 app.listen(3000, () => {
