@@ -15,6 +15,17 @@ app.post("/", (req, res) => {
 	res.send(`The sum of ${num1} and ${num2} is ${sum}`)
 })
 
+app.get("/bmicalculator", (req, res) => {
+	res.sendFile(`${__dirname}/bmiCalculator.html`)
+})
+
+app.post("/bmicalculator", (req, res) => {
+	let weight = parseFloat(req.body.weight)
+	let height = parseFloat(req.body.height)
+	let bmi = weight / Math.pow(height, 2)
+	res.send(`Your BMI is ${bmi}`)
+})
+
 app.listen(3000, () => {
 	console.log("Server is running on port 3000")
 })
